@@ -1,7 +1,7 @@
 CJS-Yield
 ===
 
-Fast, non-blocking JavaScript the easy way
+Async (Non-Blocking) JavaScript the Easy Way
 ---
 
 ### Install
