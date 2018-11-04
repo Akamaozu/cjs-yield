@@ -1,0 +1,26 @@
+{
+  "name": "cjs-yield",
+  "version": "0.1.0",
+  "description": "Write fast, non-blocking, async JavaScript with ease",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akamaozu/cjs-yield.git"
+  },
+  "keywords": [
+    "non-blocking",
+    "yield",
+    "async",
+    "concurrent",
+    "cooperative"
+  ],
+  "author": "akamaozu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akamaozu/cjs-yield/issues"
+  },
+  "homepage": "https://github.com/akamaozu/cjs-yield#readme"
+}
