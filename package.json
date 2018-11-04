@@ -11,11 +11,11 @@
     "url": "git+https://github.com/akamaozu/cjs-yield.git"
   },
   "keywords": [
-    "non-blocking",
     "yield",
     "async",
     "concurrent",
-    "cooperative"
+    "cooperative",
+    "non-blocking"
   ],
   "author": "akamaozu",
   "license": "MIT",
