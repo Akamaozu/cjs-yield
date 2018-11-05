@@ -4,7 +4,8 @@
   "description": "Async (Non-Blocking) JavaScript the Easy Way",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha"
+    "test": "nyc node_modules/mocha/bin/_mocha",
+    "lcov-to-coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,8 @@
   "homepage": "https://github.com/akamaozu/cjs-yield#readme",
   "dependencies": {},
   "devDependencies": {
-    "mocha": "^5.2.0"
+    "coveralls": "^3.0.2",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
   }
 }
