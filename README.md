@@ -13,16 +13,20 @@ npm install --save cjs-yield
 
 ### How It Works
 
-```
-// call function the normal (blocking) way 
+#### Call Function Normally (Blocking) 
+
+```js
   say_hi();
   console.log( 'callstack ends' );
 
   // output
   // > hi!
   // > callstack ends
+```
 
-// call function in a non-blocking way
+#### Yield Function Call (Non-Blocking)
+
+```js
   var _yield = require( 'cjs-yield' );
 
   _yield( say_hi );
