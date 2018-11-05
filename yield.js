@@ -1,6 +1,6 @@
-module.exports = yield_then;
+module.exports = _yield;
 
-function yield_then(){
+function _yield(){
   var has_arguments = arguments.length > 0;
   if( ! has_arguments ) throw new Error( 'must specify function to run after yielding completes' );
 
@@ -10,7 +10,7 @@ function yield_then(){
   // ensure callback is specified
     if( typeof callback !== 'function' ) throw new Error( 'yield callback must be a function' );
 
-  // transform args: yield_then -> setTimeout
+  // transform args: _yield -> setTimeout
     arguments_array.splice( 1, 0, 0 );
 
   // yield then callback

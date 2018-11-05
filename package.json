@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/akamaozu/cjs-yield/issues"
   },
-  "homepage": "https://github.com/akamaozu/cjs-yield#readme"
+  "homepage": "https://github.com/akamaozu/cjs-yield#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
 }
