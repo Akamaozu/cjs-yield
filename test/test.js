@@ -18,8 +18,6 @@ describe( 'yield', function(){
       { name: 'undefined' }
     ];
 
-    // note: testing for undefined covers case of no given first argument
-
     var succeeded = [];
 
     datatypes.forEach( function( type ){
@@ -33,6 +31,17 @@ describe( 'yield', function(){
 
     assert.equal( succeeded.length, 1, 'expected one successful datatype only. succeeded=' + succeeded.length );
     assert.equal( succeeded[0], 'function', 'expected successful datatype to be function' );
+
+    var callable_with_no_args = false;
+
+    try {
+      _yield();
+      callable_with_no_args = true;
+    }
+
+    catch(e){}
+
+    assert.equal( callable_with_no_args, false, 'expected to throw an error if called with no argumentss given' );
   });
 });
 
