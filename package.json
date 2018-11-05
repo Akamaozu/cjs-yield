@@ -1,6 +1,6 @@
 {
   "name": "cjs-yield",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Async (Non-Blocking) JavaScript the Easy Way",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "keywords": [
     "yield",
     "async",
-    "concurrent",
+    "concurrency",
     "cooperative",
     "non-blocking"
   ],
