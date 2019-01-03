@@ -65,3 +65,37 @@ npm install --save cjs-yield
   // > callstack ends
   // > Hi Ed, Edd and Eddy!
 ```
+
+### Gotchas
+
+#### 1. Yield DOES NOT work with functions that internally use `this`
+
+Internally, yield uses `setTimeout.apply` to yield a given function, while making it easy to pass arguments to it. To make the API as simple and as pleasant as posible, `setTimeout.apply` uses null as its default context. This is fine unless the function use `this` keyword internally. Even if you avoid writing functions that use `this`, you can't escape it since many native JavaScript array methods like `Array.push` use it.
+
+To yield a function that uses `this`, put the troublesome function into a function that doesn't use `this` and pass that new function to yield.
+
+Eg.
+
+```js
+  var heroes = [];
+  _yield( heroes.push, 'Batman' );
+  console.log( 'callstack ends' );
+
+  // > callstack ends
+  // > heroes=[]
+```
+
+vs
+
+```js
+  var heroes = [];
+  _yield( add_hero, 'Batman' );
+  console.log( 'callstack ends' );
+
+  // > callstack ends
+  // > heroes=[ 'Batman' ]
+
+  function add_hero( name ){
+    heroes.push( name );
+  }
+```
