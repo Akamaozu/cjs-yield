@@ -2,7 +2,7 @@
   "name": "cjs-yield",
   "version": "1.0.0",
   "description": "Async (Non-Blocking) JavaScript the Easy Way",
-  "main": "index.js",
+  "main": "yield.js",
   "scripts": {
     "test": "nyc node_modules/mocha/bin/_mocha",
     "lcov-to-coveralls": "nyc report --reporter=text-lcov | coveralls"
