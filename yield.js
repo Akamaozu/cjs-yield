@@ -1,18 +1,16 @@
 module.exports = _yield;
 
 function _yield(){
-  var has_arguments = arguments.length > 0;
-  if( ! has_arguments ) throw new Error( 'must specify function to run after yielding completes' );
+  if( typeof arguments[0] !== 'function' ) throw new Error( 'requires a function to yield as the first arg' );
 
   var arguments_array = Array.prototype.slice.call( arguments ),
-      callback = arguments_array[0];
+      func_to_yield = arguments_array[0];
 
-  // ensure callback is specified
-    if( typeof callback !== 'function' ) throw new Error( 'yield callback must be a function' );
+  // yield aka call function after current callstack ends
 
-  // transform args: _yield -> setTimeout
-    arguments_array.splice( 1, 0, 0 );
+    // #1. transform args: _yield -> setTimeout
+      arguments_array.splice( 1, 0, 0 );
 
-  // yield then callback
-    setTimeout.apply( null, arguments_array );
+    // #2. use setTimeout to put func on next callstack
+      setTimeout.apply( null, arguments_array );
 }
