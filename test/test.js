@@ -21,12 +21,17 @@ describe( 'yield', function(){
     var succeeded = [];
 
     datatypes.forEach( function( type ){
+      var success = false;
+
       try {
         _yield( type.example );
-        succeeded.push( type.name );
+        success = true;
       }
 
       catch(e){}
+
+      if( success ) succeeded.push( type.name );
+      console.log( 'action=test-first-arg type=' + type.name + ' success=' + success );
     });
 
     assert.equal( succeeded.length, 1, 'expected one successful datatype only. succeeded=' + succeeded.length );
@@ -48,29 +53,33 @@ describe( 'yield', function(){
 describe( 'yield behavior', function(){
   it( 'will not run given function til current callstack is empty', function( done ){
     var input = [ 1, 2, 3, 4, 5 ],
-        non_yielding = [],
-        yielding = [],
-        input_index_to_yield = 0,
-        number_to_yield = input[ input_index_to_yield ];
+        non_yielded = [],
+        yielded = [];
 
-    for( var i = 0; i < input.length - 1; i += 1 ){
-      non_yielding.push( input[ i ] );
+    console.log( '> input', input );
 
-      if( i !== input_index_to_yield ) yielding.push( input[ i ] );
-      else _yield( push_after_yield, number_to_yield );
+    for( var i = 0; i <= input.length - 1; i += 1 ){
+      non_yielded.push( input[ i ] );
+      _yield( function( val_to_push ){ yielded.push( val_to_push ) }, input[ i ] );
     }
 
-    assert.equal( yielding[ input_index_to_yield ] !== number_to_yield, true, 'yield['+ input_index_to_yield +'] === non_yield['+ input_index_to_yield +'] are the same' );
-    assert.equal( yielding[ yielding.length - 1 ] !== number_to_yield, true, 'yielded function already executed' );
+    console.log( 'yielding and non-yielding pushes done' );
+
+    console.log( '> non yielded', non_yielded );
+    console.log( '> yielded', yielded );
+
+    assert.equal( non_yielded.length === input.length, true, 'non-yielded push tally does not match input' );
+    assert.equal( yielded.length === 0, true, 'yielded push tally is not zero before callstack ends' );
 
     // yielding via setTimeout
-    setTimeout( function(){
-      assert.equal( yielding[ yielding.length - 1 ] == number_to_yield, true, 'function executed after yield' );
-      done();
-    }, 0 );
+      setTimeout( function(){
+        console.log( '> non yielded', non_yielded );
+        console.log( '> yielded', yielded );
 
-    function push_after_yield( value_to_push ){
-      yielding.push( value_to_push );
-    }
+        assert.equal( yielded.length === input.length, true, 'yielded push tally does not match input after callstack ends' );
+        done();
+      }, 0 );
+
+    console.log( 'callstack ends' );
   });
 });
