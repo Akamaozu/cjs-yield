@@ -1,7 +1,7 @@
 {
   "name": "cjs-yield",
   "version": "1.0.0",
-  "description": "Async (Non-Blocking) JavaScript the Easy Way",
+  "description": "Don't Start Function til Current Callstack Ends",
   "main": "yield.js",
   "scripts": {
     "test": "nyc node_modules/mocha/bin/_mocha",
