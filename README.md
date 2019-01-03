@@ -2,7 +2,7 @@ Yield
 ===
 [![npm version](https://badge.fury.io/js/cjs-yield.svg)](https://badge.fury.io/js/cjs-yield) [![Build Status](https://travis-ci.org/Akamaozu/cjs-yield.svg?branch=master)](https://travis-ci.org/Akamaozu/cjs-yield) [![Coverage Status](https://coveralls.io/repos/github/Akamaozu/cjs-yield/badge.svg?branch=master)](https://coveralls.io/github/Akamaozu/cjs-yield?branch=master)
 
-Don't Start Function Until Current Callstack Ends
+Don't Start Function Until Current [Callstack](https://www.youtube.com/watch?v=8aGhZQkoFbQ&feature=youtu.be&t=256) Ends
 ---
 
 ### Install
