@@ -1,6 +1,6 @@
 {
   "name": "cjs-yield",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Don't Start Function Until Current Callstack Ends",
   "main": "yield.js",
   "scripts": {
